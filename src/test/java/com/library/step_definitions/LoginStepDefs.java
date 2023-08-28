@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Map;
 
 public class LoginStepDefs {
@@ -45,7 +46,7 @@ public class LoginStepDefs {
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
         System.out.println("Verifying dashboard page");
-        WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
+        WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(5));
         wait.until(ExpectedConditions.urlContains("dashboard"));
         String actualTitle = Driver.get().getCurrentUrl();
         Assert.assertTrue(actualTitle.endsWith("dashboard"));
